@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 4% 65%;
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 24 95% 53%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0a0a0a;
+  }
+}
+
+/* Glass card effect */
+.glass-card {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl;
+}
+
+.glass-card-hover {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/20;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent;
+}
+
+/* Hero gradient overlay */
+.hero-gradient {
+  background: linear-gradient(to bottom, rgba(26, 10, 46, 0.7) 0%, rgba(10, 10, 10, 0.9) 50%, rgba(10, 10, 10, 1) 100%);
+}
+
+/* Page header gradient - transparent at top to show hero image, darkens as you scroll */
+.page-header-gradient {
+  background: linear-gradient(to bottom, 
+    rgba(10, 10, 10, 0.1) 0%, 
+    rgba(10, 10, 10, 0.3) 30%,
+    rgba(10, 10, 10, 0.6) 60%, 
+    rgba(10, 10, 10, 0.9) 100%
+  );
+}
+
+/* Skin viewer container */
+.skin-viewer-container {
+  @apply relative w-full h-64 flex items-center justify-center;
+}
+
+/* Leaderboard rank colors */
+.rank-1 { @apply bg-yellow-500/20 text-yellow-400 border-yellow-500/30; }
+.rank-2 { @apply bg-gray-400/20 text-gray-300 border-gray-400/30; }
+.rank-3 { @apply bg-orange-600/20 text-orange-400 border-orange-600/30; }
+
+/* Type badge colors */
+.type-feature { @apply bg-green-500/20 text-green-400 border-green-500/30; }
+.type-improvement { @apply bg-blue-500/20 text-blue-400 border-blue-500/30; }
+.type-bugfix { @apply bg-red-500/20 text-red-400 border-red-500/30; }
+.type-technical { @apply bg-purple-500/20 text-purple-400 border-purple-500/30; }
+.type-other { @apply bg-gray-500/20 text-gray-400 border-gray-500/30; }
+
+/* Staff role gradients */
+.role-owner { @apply bg-gradient-to-r from-red-600 to-red-800; }
+.role-admin { @apply bg-gradient-to-r from-red-500 to-red-700; }
+.role-developer { @apply bg-gradient-to-r from-purple-500 to-purple-700; }
+.role-senior-mod { @apply bg-gradient-to-r from-indigo-500 to-indigo-700; }
+.role-moderator { @apply bg-gradient-to-r from-blue-500 to-blue-700; }
+.role-helper { @apply bg-gradient-to-r from-pink-500 to-pink-700; }
+
+/* 404 glow effect */
+.glow-404 {
+  filter: drop-shadow(0 0 30px rgba(249, 115, 22, 0.5));
+}
+
+/* Chart styles */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
